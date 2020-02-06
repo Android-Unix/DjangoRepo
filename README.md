@@ -1,2 +1,0 @@
-# DjangoRepo
-adding sample project
