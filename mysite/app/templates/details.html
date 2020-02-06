@@ -1,15 +1,11 @@
 <html>
 <body>
   <h2>{{question_list.question}}</h2>
-    {% if question %}
         <ul>
         {% for choice in question_list.choice_set.all %}
-            <li>{{choice.choice_text}}</a></li>
+            <li>{{choice.choice_Question}}</a></li>
         {% endfor %}
         </ul>
-    {% else %}
-        <p>No Choices are available.</p>
-    {% endif %}
 
 </body>
 </html>
