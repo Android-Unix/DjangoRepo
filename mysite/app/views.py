@@ -6,11 +6,8 @@ from .models import Question , Choice
 # Create your views here.
 
 def index(request):
-    latest_question_list = Question.objects.order_by('-publication')
+    latest_question_list = Question.objects.order_by('pk')
     return render(request, 'index.html' , {'latest_question_list' : latest_question_list})
-
-def render_home_page(request) :
-    return render(request , 'home.html')
 
 def detail(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
