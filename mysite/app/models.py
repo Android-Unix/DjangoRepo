@@ -16,4 +16,4 @@ class Choice(models.Model):
     votes = models.IntegerField(default = 0)
 
     def __str__(self) :
-        return str(self.choice_Question + ' : ' + self.votes)
+        return str(self.choice_Question + ' : ' + str(self.votes))
