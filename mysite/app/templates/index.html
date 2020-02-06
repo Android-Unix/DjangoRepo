@@ -42,11 +42,10 @@
 {% for question in latest_question_list %}
 
 <tr>
-
-<td class="column1">{{ question.pk}}</td>
-<td class="column2">{{ question.question}}</td>
-<td class="column3>">{{ question.publication}}</td>
-
+	<td class="column1"><a href="{% url 'detail' question.id %}">
+{{ question.id}}</a></td>
+	<td class="column2">{{ question.question}}</td>
+	<td class="column3">{{ question.publication}}</td>
 </tr>
 {% endfor %}
 
