@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<!-- Mirrored from colorlib.com/etc/tb/Table_Responsive_v1/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 06 Feb 2020 10:08:37 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>QuestionList</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="icon" type="image/png" href=" {% static 'images/icons/favicon.ico' %}" />
+
+<link rel="stylesheet" type="text/css" href="{% static  'vendor/bootstrap/css/bootstrap.min.css' %}">
+
+<link rel="stylesheet" type="text/css" href="{% static  'fonts/font-awesome-4.7.0/css/font-awesome.min.css'%}">
+
+<link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.css' %}">
+
+<link rel="stylesheet" type="text/css" href="{% static 'vendor/select2/select2.min.css' %}">
+
+<link rel="stylesheet" type="text/css" href="{% static  'vendor/perfect-scrollbar/perfect-scrollbar.css' %}">
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+
+</head>
+<body>
+<div class="limiter">
+	<div class="container-table100">
+		<div class="wrap-table100">
+			<div class="table100">
+				<table>
+				<thead>
+				<tr class="table100-head">
+				<th class="column1">Question_No</th>
+				<th class="column2">Question</th>
+				<th class="column3">publication</th>
+				</tr>
+				</thead>
+				<tbody>
+				{% for question in latest_question_list %}
+
+				<tr onClick = row_click({{question.id}})>
+					<td class="column1">
+				{{ forloop.counter}}</a></td>
+					<td class="column2">
+				{{ question.question}}</a></td>
+					<td class="column3">{{ question.publication}}</td>
+				</tr>
+				{% endfor %}
+
+				</tr>
+				</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<script type = "text/javascript">
+	function row_click(request){
+		console.log(request);
+		window.location.href = "/" + request;
+	}
+
+</script>
+<!-- Mirrored from colorlib.com/etc/tb/Table_Responsive_v1/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 06 Feb 2020 10:08:51 GMT -->
+</html>
