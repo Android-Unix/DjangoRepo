@@ -1,11 +1,49 @@
+{% load static%}
+
 <html>
+<head>
+<title>QuestionList</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="icon" type="image/png" href=" {% static 'images/icons/favicon.ico' %}" />
+
+<link rel="stylesheet" type="text/css" href="{% static  'vendor/bootstrap/css/bootstrap.min.css' %}">
+
+<link rel="stylesheet" type="text/css" href="{% static  'fonts/font-awesome-4.7.0/css/font-awesome.min.css'%}">
+
+<link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.css' %}">
+
+<link rel="stylesheet" type="text/css" href="{% static 'vendor/select2/select2.min.css' %}">
+
+<link rel="stylesheet" type="text/css" href="{% static  'vendor/perfect-scrollbar/perfect-scrollbar.css' %}">
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+
+</head>
+
 <body>
-  <h2>{{question_list.question}}</h2>
-        <ul>
-        {% for choice in question_list.choice_set.all %}
-            <li>{{choice.choice_Question}}</a></li>
-        {% endfor %}
-        </ul>
+  <div class="limiter">
+  <div class="container-table100">
+  <div class="wrap-table100">
+  <div class="table100">
+  <h1>{{ question_list.question}}</h1>
+
+  {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+  <form action = "vote/" method="post" class = "column2">
+      {% csrf_token %}
+      {% for choice in question_list.choice_set.all %}
+          <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" class = "column2" style="margin-top : 20px">
+          <label for="choice{{ forloop.counter }}" class = "column2">{{ choice.choice_Question }}</label>
+      {% endfor %}
+      <input type="submit" value="Vote" class = "column2" style=" margin-top: 10px;">
+  </form>
+</div>
+</div>
+</div>
+</div>
 
 </body>
 </html>

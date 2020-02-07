@@ -15,5 +15,5 @@ class Choice(models.Model):
     choice_Question = models.TextField()
     votes = models.IntegerField(default = 0)
 
-    def __str__(self) :
+    def __str__(self):
         return str(self.choice_Question + ' : ' + str(self.votes))
